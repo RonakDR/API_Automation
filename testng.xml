@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org">
+
+<suite name="MyTestSuite" verbose="1">
+    <test name="RegressionTests">
+        <classes>
+            <class name="com.api.tests.LoginAPITest" />
+            <class name="com.api.tests.UserDetailsAPITest" />
+            <class name="com.api.tests.CountAPITest" />
+            <class name="com.api.tests.MasterAPITest" />
+        </classes>
+    </test>
+</suite>
