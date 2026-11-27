@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.*;
 
 import com.api.utils.AuthTokenProvider;
 import com.api.utils.ConfigManager;
+import com.api.utils.SpecUtil;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import org.testng.annotations.Test;
@@ -17,13 +18,11 @@ public class UserDetailsAPITest {
 //        Header header=new Header("Authorization","");
 
         given()
-                .baseUri(ConfigManager.getProperty("BASE_URI"))
-                .header("Authorization",AuthTokenProvider.getToken())
-                .contentType(ContentType.JSON)
+                .spec(SpecUtil.requestSpecwithAuth())
                 .when()
                 .get("userdetails")
                 .then()
-                .statusCode(200)
+                .spec(SpecUtil.responseSpec())
                 .log().status();
     }
 }
