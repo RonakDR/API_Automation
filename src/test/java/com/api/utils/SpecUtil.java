@@ -1,6 +1,5 @@
 package com.api.utils;
 
-import com.api.pojo.UserCredentials;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;

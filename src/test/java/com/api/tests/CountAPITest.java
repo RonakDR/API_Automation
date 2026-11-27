@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.*;
 
 public class CountAPITest {
 
-    @Test
+    @Test(description = "Checking positive response for count API with Authorisation",groups = {"api","regression","smoke"})
     public void verifyCountAPIResponse(){
 
         given()
@@ -25,7 +25,7 @@ public class CountAPITest {
                 .body("data.count", Matchers.everyItem(Matchers.greaterThanOrEqualTo(0)));
     }
 
-    @Test
+    @Test(description = "Checking negative response for master API without Authorisation",groups = {"api","regression","smoke"})
     public void countAPIResponse_MissingAuth(){
 
         given()

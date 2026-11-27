@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class UserDetailsAPITest {
 
-    @Test
+    @Test(description = "Checking if user details API is working or not with Authorisation",groups = {"api","regression","smoke"})
     public void userDetailRequest() throws IOException {
 //        Header header=new Header("Authorization","");
 
