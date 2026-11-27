@@ -2,19 +2,22 @@ package com.api.tests;
 
 import static io.restassured.RestAssured.*;
 
-import com.api.pojo.UserCredentials;
-import com.api.utils.ConfigManager;
+import com.api.request.model.UserCredentials;
 import com.api.utils.SpecUtil;
-import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginAPITest {
+    UserCredentials userCredentials;
+    @BeforeMethod
+    public void  setup(){
+        userCredentials=new UserCredentials("iamfd","password");
 
-    @Test
+    }
+
+    @Test(description = "Verifying if login API is working for the provided users",groups = {"api","regression","smoke"})
     public void loginRequest() {
-
-        UserCredentials userCredentials=new UserCredentials("iamfd","password");
 
         given()
                 .spec(SpecUtil.requestSpec(userCredentials))

@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class MasterAPITest {
 
-    @Test
+    @Test(description = "Checking positive response for master API with Authorisation",groups = {"api","regression","smoke"})
     public void masterAPITest(){
 
         given()
@@ -24,7 +24,7 @@ public class MasterAPITest {
 
     }
 
-    @Test
+    @Test(description = "Checking negative response for master API without Authorisation",groups = {"api","regression","smoke"})
     public void masterAPITest_Negative(){
 
         given()
