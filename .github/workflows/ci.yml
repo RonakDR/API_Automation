@@ -43,7 +43,7 @@ jobs:
       id: default
       run: |
             echo "suiteXmlFile=${{ github.event.inputs.suiteXmlFile || 'testng.xml'}}" >> $GITHUB_OUTPUT
-            echo "suiteXmlFile=${{ github.event.inputs.env || 'QA'}}" >> $GITHUB_OUTPUT
+            echo "env=${{ github.event.inputs.env || 'QA'}}" >> $GITHUB_OUTPUT
             
     - name: test with Maven
       run: mvn test -DsuiteXmlFile="${{ steps.default.outputs.suiteXmlFile }}" -Denv="${{ steps.default.outputs.env }}"
