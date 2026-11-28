@@ -39,6 +39,17 @@ public class SpecUtil {
                 .build();
     }
 
+    public static RequestSpecification requestSpecwithAuth(Object payload){
+
+        return new RequestSpecBuilder()
+                .setBaseUri(ConfigManager.getProperty("BASE_URI"))
+                .setContentType(ContentType.JSON)
+                .setAccept(ContentType.JSON)
+                .addHeader("Authorization",AuthTokenProvider.getToken())
+                .setBody(payload)
+                .build();
+    }
+
     public static ResponseSpecification responseSpec(){
         return new ResponseSpecBuilder()
                 .expectContentType(ContentType.JSON)
